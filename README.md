@@ -1,4 +1,4 @@
-<a href="https://github.com/jcs-elpa/turbo-log"><img align="right" src="./etc/logo.png"></a>
+<a href="https://github.com/jcs-elpa/turbo-log"><img align="right" src="./etc/logo.png" width="128" height="128"></a>
 
 # turbo-log
 
