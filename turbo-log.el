@@ -83,7 +83,7 @@
 
 (defun turbo-log--insert (var)
   "Insert VAR by format."
-  (let ((prefix (read-string "Prefix: " (if turbo-log-prefix-intial var "")))
+  (let ((prefix (read-string "Log Prefix: " (if turbo-log-prefix-intial var "")))
         (fmt (cdr (assoc major-mode turbo-log-formats))))
     (goto-char (line-end-position))
     (insert "\n") (indent-for-tab-command)
