@@ -1,0 +1,9 @@
+# ignore these directories.
+/.git
+/recipes
+/test
+turbo-log-pkg.el
+turbo-log-autoloads.el
+
+# ignore generated files.
+*.elc
