@@ -7,7 +7,7 @@
 ;; Description: Automating the process of writing meaningful log messages.
 ;; Keyword: log debug
 ;; Version: 0.1.0
-;; Package-Requires: ((emacs "24.3"))
+;; Package-Requires: ((emacs "24.4"))
 ;; URL: https://github.com/jcs-elpa/turbo-log
 
 ;; This file is NOT part of GNU Emacs.
@@ -40,18 +40,29 @@
   :group 'tool
   :link '(url-link :tag "Repository" "https://github.com/jcs-elpa/turbo-log"))
 
-(defcustom turbo-log-format
-  '((actionscript-mode     . "trace(\"%s\");")
-    (csharp-mode           . "Console.WriteLine(%s);")
-    (javascript-mode       . "console.log(%s);")
-    (js-mode               . "console.log(%s);")
-    (js1-mode              . "console.log(%s);")
-    (js2-mode              . "console.log(%s);")
-    (emacs-lisp-mode       . "(message \"%%s\" %s)")
-    (lisp-interaction-mode . "(message \"%%s\" %s)")
-    (lisp-mode             . "(message \"%%s\" %s)"))
-  ""
+(defcustom turbo-log-formats
+  '((actionscript-mode     . "trace(\"%s\" + %s);")
+    (csharp-mode           . "Console.WriteLine(\"%s\" + %s);")
+    (java-mode             . "System.out.println(\"%s\" + %s);")
+    (javascript-mode       . "console.log(\"%s\" + %s);")
+    (js-mode               . "console.log(\"%s\" + %s);")
+    (js2-mode              . "console.log(\"%s\" + %s);")
+    (js3-mode              . "console.log(\"%s\" + %s);")
+    (emacs-lisp-mode       . "(message \"%s%%s\" %s)")
+    (lisp-interaction-mode . "(message \"%s%%s\" %s)")
+    (lisp-mode             . "(message \"%s%%s\" %s)"))
+  "Alist for logging format."
   :type 'list
+  :group 'turbo-log)
+
+(defcustom turbo-log-prefix-delimiter ": "
+  "The delimiter between prefix and log."
+  :type 'string
+  :group 'turbo-log)
+
+(defcustom turbo-log-prefix-intial t
+  "If non-nil, have variable name to prefix initial."
+  :type 'string
   :group 'turbo-log)
 
 ;;
@@ -72,10 +83,11 @@
 
 (defun turbo-log--insert (var)
   "Insert VAR by format."
-  (goto-char (line-end-position))
-  (insert "\n") (indent-for-tab-command)
-  (let ((fmt (cdr (assoc major-mode turbo-log-format))))
-    (insert (format fmt var))))
+  (let ((prefix (read-string "Prefix: " (if turbo-log-prefix-intial var "")))
+        (fmt (cdr (assoc major-mode turbo-log-formats))))
+    (goto-char (line-end-position))
+    (insert "\n") (indent-for-tab-command)
+    (insert (format fmt (concat prefix turbo-log-prefix-delimiter) var))))
 
 (defun turbo-log-string (str)
   "Log the STR by it's current `major-mode'."
@@ -89,10 +101,12 @@
 
 ;;;###autoload
 (defun turbo-log (beg end)
-  "Turbo log the current selected region."
+  "Turbo log the current selected region.
+
+Arguments BEG and END are region parameters."
   (interactive "r")
   (if (not (use-region-p))
-      (user-error "Region is not declare for Turbo Log")
+      (user-error "Warning: no region selected")
     (turbo-log-string (buffer-substring (region-beginning) (region-end)))))
 
 (provide 'turbo-log)
