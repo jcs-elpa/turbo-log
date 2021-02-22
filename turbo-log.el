@@ -32,7 +32,11 @@
 
 ;;; Code:
 
-
+(defgroup turbo-log nil
+  "Automating the process of writing meaningful log messages."
+  :prefix "turbo-log-"
+  :group 'tool
+  :link '(url-link :tag "Repository" "https://github.com/jcs-elpa/turbo-log"))
 
 (provide 'turbo-log)
 ;;; turbo-log.el ends here
