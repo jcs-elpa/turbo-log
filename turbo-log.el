@@ -103,21 +103,23 @@
 
 (defun turbo-log--insert (var)
   "Insert VAR by format."
-  (let* ((prefix (read-string "Log Prefix: " (if turbo-log-prefix-intial var "")))
-         (fmt (cdr (assoc major-mode turbo-log-formats)))
-         (insertion (concat turbo-log-prefix prefix turbo-log-prefix-delimiter)))
-    (goto-char (line-end-position))
-    (insert "\n") (indent-for-tab-command)
-    (insert (format fmt insertion var))))
+  (let ((fmt (cdr (assoc major-mode turbo-log-formats))))
+    (if (null fmt)
+        (user-error "[WARNING] No turbo log format found")
+      (let* ((prefix (read-string "Log Prefix: " (if turbo-log-prefix-intial var "")))
+             (insertion (concat turbo-log-prefix prefix turbo-log-prefix-delimiter)))
+        (goto-char (line-end-position))
+        (insert "\n") (indent-for-tab-command)
+        (insert (format fmt insertion var))))))
 
 (defun turbo-log-string (str)
   "Log the STR by it's current `major-mode'."
   (deactivate-mark)
   (setq str (string-trim str))
   (cond ((not (= (turbo-log--char-count str) 1))
-         (user-error "Warning: multiple tokens region selected"))
+         (user-error "[WARNING] multiple tokens region selected"))
         ((turbo-log--inside-comment-or-string-p)
-         (user-error "Warning: comment or string symbol"))
+         (user-error "[WARNING] comment or string symbol"))
         (t (turbo-log--insert str))))
 
 ;;;###autoload
@@ -127,7 +129,7 @@
 Arguments BEG and END are region parameters."
   (interactive "r")
   (if (not (use-region-p))
-      (user-error "Warning: no region selected")
+      (user-error "[WARNING] no region selected")
     (turbo-log-string (buffer-substring (region-beginning) (region-end)))))
 
 (provide 'turbo-log)
