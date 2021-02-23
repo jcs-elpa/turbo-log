@@ -21,11 +21,26 @@ I would recommend you to bind command `turbo-log` to a keymap.
 (define-key [your-mode-map] (kbd "[key]") #'turbo-log)
 ```
 
-## Add your own language?
+## Add your favourite language?
 
-N/A
+The supported languages is listed `turbo-log-formats`. You can customize
+`turbo-log-formats` variable  to add your own logging support for your
+favourite language. Just add cons cell like (mode-name . log-string).
+
+For instance, in JavaScript.
+
+```el
+(setq turbo-log-formats '((javascript-mode . "console.log(\"%s\" + %s);")))
+```
+
+The first `%s` is the prefix string for to see your log easier. The default
+value is `╘[TL] variable-name: `. You can customize this behaviour, see
+[turbo-log#customization](https://github.com/jcs-elpa/turbo-log#customization).
 
 ## Customization
+
+Here is a list of variables for you to customize to alter the behaviour of
+this package.
 
 | Name                         | Default    | Description                                       |
 |:-----------------------------|:-----------|:--------------------------------------------------|
