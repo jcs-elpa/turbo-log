@@ -42,17 +42,37 @@
 
 (defcustom turbo-log-formats
   '((actionscript-mode     . "trace(\"%s\" + %s);")
+    (c-mode                . "printf(\"%s\");")
+    (c++-mode              . "std::count << \"%s\" << %s;")
     (csharp-mode           . "Console.WriteLine(\"%s\" + %s);")
+    (emacs-lisp-mode       . "(message \"%s%%s\" %s)")
+    (go-mode               . "fmt.Println(\"%s\", %s)")
+    (groovy-mode           . "println \"%s\" + %s")
     (java-mode             . "System.out.println(\"%s\" + %s);")
     (javascript-mode       . "console.log(\"%s\" + %s);")
     (js-mode               . "console.log(\"%s\" + %s);")
     (js2-mode              . "console.log(\"%s\" + %s);")
     (js3-mode              . "console.log(\"%s\" + %s);")
-    (emacs-lisp-mode       . "(message \"%s%%s\" %s)")
     (lisp-interaction-mode . "(message \"%s%%s\" %s)")
-    (lisp-mode             . "(message \"%s%%s\" %s)"))
+    (lisp-mode             . "(message \"%s%%s\" %s)")
+    (lua-mode              . "io.write(\"%s\" + %s)")
+    (objc-mode             . "NSLog(@\"%s%%@\", %s);")
+    (php-mode              . "echo \"%s\" . %s;")
+    (python-mode           . "print(\"%s\", %s)")
+    (rjsx-mode             . "console.log(\"%s\" + %s);")
+    (ruby-mode             . "puts \"%s\" + %s")
+    (rust-mode             . "println!(\"%s{}\", %s);")
+    (scala-mode            . "println(\"%s\" + %s)")
+    (swift-mode            . "print(\"%s\", %s)")
+    (typescript-mode       . "console.log(\"%s\" + %s);")
+    (web-mode              . "console.log(\"%s\" + %s);"))
   "Alist for logging format."
   :type 'list
+  :group 'turbo-log)
+
+(defcustom turbo-log-prefix "╘[TL] "
+  "The delimiter between prefix and log."
+  :type 'string
   :group 'turbo-log)
 
 (defcustom turbo-log-prefix-delimiter ": "
@@ -83,11 +103,12 @@
 
 (defun turbo-log--insert (var)
   "Insert VAR by format."
-  (let ((prefix (read-string "Log Prefix: " (if turbo-log-prefix-intial var "")))
-        (fmt (cdr (assoc major-mode turbo-log-formats))))
+  (let* ((prefix (read-string "Log Prefix: " (if turbo-log-prefix-intial var "")))
+         (fmt (cdr (assoc major-mode turbo-log-formats)))
+         (insertion (concat turbo-log-prefix prefix turbo-log-prefix-delimiter)))
     (goto-char (line-end-position))
     (insert "\n") (indent-for-tab-command)
-    (insert (format fmt (concat prefix turbo-log-prefix-delimiter) var))))
+    (insert (format fmt insertion var))))
 
 (defun turbo-log-string (str)
   "Log the STR by it's current `major-mode'."
