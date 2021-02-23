@@ -7,6 +7,8 @@
 
 Automating the process of writing meaningful log messages.
 
+*P.S. Inspired by VSCode plugin, [Turbo Console Log](https://marketplace.visualstudio.com/items?itemName=ChakrounAnas.turbo-console-log).*
+
 ## Contribution
 
 If you would like to contribute to this project, you may either
