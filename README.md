@@ -11,7 +11,7 @@ Automating the process of writing meaningful log messages.
 
 ## Usage
 
-This package only have one command `turbo-log`. I would recommend you
+This package only has one command `turbo-log`. I would recommend you
 bind this command to a keymap.
 
 ```el
