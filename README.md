@@ -1,4 +1,4 @@
-<a href="https://github.com/jcs-elpa/turbo-log"><img align="right" src="./etc/logo/logo.png"></a>
+<a href="https://github.com/jcs-elpa/turbo-log"><img align="right" src="./etc/logo/logo.png" width="600" height="174"></a>
 
 # turbo-log
 
@@ -9,7 +9,7 @@ This extension make debugging much easier by automating the operation of
 writing meaningful log message.
 
 <p align="center">
-  <img src="./etc/demo/1.gif" width="450" height="513"/>
+  <img src="./etc/demo/1.gif"/>
 </p>
 
 *P.S. Inspired by VSCode plugin, [Turbo Console Log](https://marketplace.visualstudio.com/items?itemName=ChakrounAnas.turbo-console-log).*
