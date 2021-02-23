@@ -30,13 +30,10 @@ bind this command to a keymap.
 
 * `turbo-log-prefix` - default to `"╘[TL] "`
   - Prefix string inserted before variable name.
-
 * `turbo-log-prefix-delimiter` - default to `: `
   - N/A
-
 * `turbo-log-prefix-intial` - default to `t`
   - N/A
-
 * `turbo-log-no-ask` - default to `nil`
   - N/A
 
