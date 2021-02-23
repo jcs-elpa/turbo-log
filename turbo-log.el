@@ -42,7 +42,6 @@
 
 (defcustom turbo-log-formats
   '((actionscript-mode     . "trace(\"%s\" + %s);")
-    (c-mode                . "printf(\"%s\");")
     (c++-mode              . "std::count << \"%s\" << %s;")
     (csharp-mode           . "Console.WriteLine(\"%s\" + %s);")
     (emacs-lisp-mode       . "(message \"%s%%s\" %s)")

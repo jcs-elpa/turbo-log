@@ -15,6 +15,10 @@ writing meaningful log message.
 1. Region select a variable
 2. `M-x turbo-log`
 
+## Add your own language?
+
+N/A
+
 ## Customization
 
 This package only has one command `turbo-log`. I would recommend you
@@ -23,6 +27,12 @@ bind this command to a keymap.
 ```el
 (define-key [your-mode-map] (kbd "[key]") #'turbo-log)
 ```
+
+`**turbo-log-prefix**` (Default: `"╘[TL] "`)
+
+* `turbo-log-prefix-delimiter` - default to `: `
+* `turbo-log-prefix-intial` - default to `t`
+* `turbo-log-no-ask` - default to `nil`
 
 ## Contribution
 
