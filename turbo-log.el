@@ -70,7 +70,7 @@
   :group 'turbo-log)
 
 (defcustom turbo-log-prefix "╘[TL] "
-  "The delimiter between prefix and log."
+  "Prefix string inserted before variable name."
   :type 'string
   :group 'turbo-log)
 
