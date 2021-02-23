@@ -37,6 +37,8 @@ The first `%s` is the prefix string for to see your log easier. The default
 value is `╘[TL] variable-name: `. You can customize this behaviour, see
 [turbo-log#customization](https://github.com/jcs-elpa/turbo-log#customization).
 
+The second `%s` is the actual variable name to print out the variable value.
+
 ## Customization
 
 Here is a list of variables for you to customize to alter the behaviour of
