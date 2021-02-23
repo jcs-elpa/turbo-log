@@ -28,7 +28,7 @@ bind this command to a keymap.
 (define-key [your-mode-map] (kbd "[key]") #'turbo-log)
 ```
 
-`**turbo-log-prefix**` (Default: `"╘[TL] "`)
+**`turbo-log-prefix`(Default: `"╘[TL] "`)**
 
 * `turbo-log-prefix-delimiter` - default to `: `
 * `turbo-log-prefix-intial` - default to `t`
