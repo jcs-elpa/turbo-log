@@ -28,7 +28,7 @@ N/A
 ## Customization
 
 | Name                         | Default    | Description                                       |
-|------------------------------|------------|---------------------------------------------------|
+|:-----------------------------|:-----------|:--------------------------------------------------|
 | `turbo-log-prefix`           | `"╘[TL] "` | Prefix string inserted before variable name.      |
 | `turbo-log-prefix-delimiter` | `: `       | The delimiter between prefix and log.             |
 | `turbo-log-prefix-intial`    | `t`        | If non-nil, have variable name to prefix initial. |
