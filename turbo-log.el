@@ -132,9 +132,9 @@ Argument VAR is the variable name for initial value."
   (deactivate-mark)
   (setq str (string-trim str))
   (cond ((not (= (turbo-log--char-count str) 1))
-         (user-error "[WARNING] multiple tokens region selected"))
+         (user-error "[WARNING] Multiple tokens region selected"))
         ((turbo-log--inside-comment-or-string-p)
-         (user-error "[WARNING] comment or string symbol"))
+         (user-error "[WARNING] Inside comment or string symbol"))
         (t (turbo-log--insert str))))
 
 ;;;###autoload
@@ -144,7 +144,7 @@ Argument VAR is the variable name for initial value."
 Arguments BEG and END are region parameters."
   (interactive "r")
   (if (not (use-region-p))
-      (user-error "[WARNING] no region selected")
+      (user-error "[WARNING] No region selected")
     (turbo-log-string (buffer-substring (region-beginning) (region-end)))))
 
 (provide 'turbo-log)
