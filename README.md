@@ -28,14 +28,21 @@ bind this command to a keymap.
 (define-key [your-mode-map] (kbd "[key]") #'turbo-log)
 ```
 
-* `turbo-log-prefix` - default to `"╘[TL] "`
-  - Prefix string inserted before variable name.
-* `turbo-log-prefix-delimiter` - default to `: `
-  - N/A
-* `turbo-log-prefix-intial` - default to `t`
-  - N/A
-* `turbo-log-no-ask` - default to `nil`
-  - N/A
+##### `turbo-log-prefix` - (Default to `"╘[TL] "`)
+
+Prefix string inserted before variable name.
+
+##### `turbo-log-prefix-delimiter` (Default to `: `)
+
+The delimiter between prefix and log.
+
+##### `turbo-log-prefix-intial` (Default to `t`)
+
+If non-nil, have variable name to prefix initial.
+
+##### `turbo-log-no-ask` (Default to `nil`)
+
+If non-nil, do not ask prefix.
 
 ## Contribution
 
