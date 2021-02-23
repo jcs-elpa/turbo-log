@@ -82,7 +82,14 @@
 
 (defcustom turbo-log-prefix-intial t
   "If non-nil, have variable name to prefix initial."
-  :type 'string
+  :type '(choice (const :tag "No initial value" nil)
+                 (const :tag "Variable name as initial value" t)
+                 string)
+  :group 'turbo-log)
+
+(defcustom turbo-log-no-ask nil
+  "If non-nil, do not ask prefix."
+  :type 'boolean
   :group 'turbo-log)
 
 ;;
@@ -101,12 +108,21 @@
 ;; (@* "Core" )
 ;;
 
+(defun turbo-log--get-prefix (var)
+  "Return prefix by customization.
+
+Argument VAR is the variable name for initial value."
+  (or (and (stringp turbo-log-prefix-intial)
+           turbo-log-prefix-intial)
+      (if turbo-log-prefix-intial var "")))
+
 (defun turbo-log--insert (var)
   "Insert VAR by format."
   (let ((fmt (cdr (assoc major-mode turbo-log-formats))))
     (if (null fmt)
         (user-error "[WARNING] No turbo log format found")
-      (let* ((prefix (read-string "Log Prefix: " (if turbo-log-prefix-intial var "")))
+      (let* ((prefix (if turbo-log-no-ask (turbo-log--get-prefix var)
+                       (read-string "Log Prefix: " (turbo-log--get-prefix var))))
              (insertion (concat turbo-log-prefix prefix turbo-log-prefix-delimiter)))
         (goto-char (line-end-position))
         (insert "\n") (indent-for-tab-command)
