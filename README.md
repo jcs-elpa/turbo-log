@@ -27,21 +27,10 @@ N/A
 
 ## Customization
 
-##### `turbo-log-prefix` - (Default to `"╘[TL] "`)
-
-Prefix string inserted before variable name.
-
-##### `turbo-log-prefix-delimiter` (Default to `: `)
-
-The delimiter between prefix and log.
-
-##### `turbo-log-prefix-intial` (Default to `t`)
-
-If non-nil, have variable name to prefix initial.
-
-##### `turbo-log-no-ask` (Default to `nil`)
-
-If non-nil, do not ask prefix.
+* **`turbo-log-prefix` (Default to `"╘[TL] "`)** - Prefix string inserted before variable name.
+* **`turbo-log-prefix-delimiter` (Default to `: `)** - The delimiter between prefix and log.
+* **`turbo-log-prefix-intial` (Default to `t`)** - If non-nil, have variable name to prefix initial.
+* **`turbo-log-no-ask` (Default to `nil`)** - If non-nil, do not ask prefix.
 
 ## Contribution
 
