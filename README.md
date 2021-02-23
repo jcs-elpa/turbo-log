@@ -9,8 +9,13 @@ Automating the process of writing meaningful log messages.
 
 *P.S. Inspired by VSCode plugin, [Turbo Console Log](https://marketplace.visualstudio.com/items?itemName=ChakrounAnas.turbo-console-log).*
 
+## Usage
+
+This package only have one command `turbo-log`. I would recommend you
+bind this command to a keymap.
+
 ```el
-(define-key your-mode-map (kbd "C-M-l") #'turbo-log)
+(define-key [your-mode-map] (kbd "[key]") #'turbo-log)
 ```
 
 ## Contribution
