@@ -5,11 +5,17 @@
 [![Build Status](https://travis-ci.com/jcs-elpa/turbo-log.svg?branch=master)](https://travis-ci.com/jcs-elpa/turbo-log)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-Automating the process of writing meaningful log messages.
+This extension make debugging much easier by automating the operation of
+writing meaningful log message.
 
 *P.S. Inspired by VSCode plugin, [Turbo Console Log](https://marketplace.visualstudio.com/items?itemName=ChakrounAnas.turbo-console-log).*
 
-## Usage
+## How to use?
+
+1. Region select a variable
+2. `M-x turbo-log`
+
+## Customization
 
 This package only has one command `turbo-log`. I would recommend you
 bind this command to a keymap.
