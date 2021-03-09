@@ -145,7 +145,7 @@ Arguments BEG and END are region parameters."
   (interactive "r")
   (if (not (use-region-p))
       (user-error "[WARNING] No region selected")
-    (turbo-log-string (buffer-substring (region-beginning) (region-end)))))
+    (turbo-log-string (buffer-substring beg end))))
 
 (provide 'turbo-log)
 ;;; turbo-log.el ends here
