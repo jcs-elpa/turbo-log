@@ -2,8 +2,8 @@
 
 # turbo-log
 
-[![Build Status](https://travis-ci.com/jcs-elpa/turbo-log.svg?branch=master)](https://travis-ci.com/jcs-elpa/turbo-log)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![CI](https://github.com/jcs-elpa/turbo-log/actions/workflows/test.yml/badge.svg)](https://github.com/jcs-elpa/turbo-log/actions/workflows/test.yml)
 
 This extension make debugging much easier by automating the operation of
 writing meaningful log message.
