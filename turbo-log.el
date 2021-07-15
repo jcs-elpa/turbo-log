@@ -33,6 +33,7 @@
 ;;; Code:
 
 (require 'cl-lib)
+(require 'subr-x)
 
 (defgroup turbo-log nil
   "Automating the process of writing meaningful log messages."
